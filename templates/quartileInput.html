@@ -1,0 +1,33 @@
+<html>
+   <body>
+      <h1>Enter Data</h1>
+      <form action="http://192.168.1.111:5000/puzzlesubmission" method="post">
+         <table>
+            <tbody>
+               <tr>
+                  {% for value in inputValues[0:4] %}
+                  <td><input type="text" name="val[]" value= "{{value}}" size="4" ></td>
+                  {% endfor %}
+               </tr>
+               <tr>
+                  {% for value in inputValues[4:8] %}
+                  <td><input type="text" name="val[]" value= "{{value}}" size="4" ></td>
+                  {% endfor %}
+               </tr>
+               <tr>
+                  {% for value in inputValues[8:12] %}
+                  <td><input type="text" name="val[]" value= "{{value}}" size="4" ></td>
+                  {% endfor %}
+               </tr>
+               <tr>
+                  {% for value in inputValues[12:] %}
+                  <td><input type="text" name="val[]" value= "{{value}}" size="4" ></td>
+                  {% endfor %}
+               </tr>
+            </tbody>
+         </table>
+         <button type="submit">Send</button>
+      </form>
+   </body>
+</html>
+

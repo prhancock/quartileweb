@@ -1,0 +1,28 @@
+<html>
+   <body>
+         <table>
+            <tbody>
+               <tr>
+                  {% for value in result[0:4] %}
+		  <td><input type="text" name="val[]" value= "{{value}}" size="4" readonly></td>
+		  {% endfor %}
+	       </tr>  
+	       <tr>
+                  {% for value in result[4:8] %}
+		  <td><input type="text" name="val[]" value= "{{value}}" size="4" readonly></td>
+		  {% endfor %}
+	       </tr> 
+	       <tr>
+                  {% for value in result[8:12] %}
+		  <td><input type="text" name="val[]" value= "{{value}}" size="4" readonly></td>
+		  {% endfor %}
+	       </tr> 
+	       <tr>
+                  {% for value in result[12:] %}
+		  <td><input type="text" name="val[]" value= "{{value}}" size="4" readonly></td>
+		  {% endfor %}
+	       </tr> 
+            </tbody>
+         </table>
+   </body>
+</html>
