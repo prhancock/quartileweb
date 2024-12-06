@@ -34,8 +34,12 @@ input[type="text"] {
     /* text-transform: lowercase; */
 }
 
+.row {
+  display: flex;
+}
+
 .column {
-   float: left;
-   width: 50%;
+  flex: 50%;
+  padding: 30px;
 }
 

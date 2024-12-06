@@ -34,11 +34,16 @@
             </tbody>
          </table>
 	 <div class="row">
-	    <div class="column"></div>
-	    <div class="column"></div>
-	 </div>
-	 {% for word in wordList %}
-	 <p style="line-height:5px">{{word}}</p>
-	 {% endfor %}
+            <div class="column">
+	       {% for value in wordList[0:(wordList|length+1)//2] %}
+	       <p style="margin:0em" align="center">{{value}}</p>
+	       {% endfor %}
+            </div>
+            <div class="column">
+	       {% for value in wordList[(wordList|length+1)//2:] %}
+	       <p style="margin:0em" align="center">{{value}}</p>
+	       {% endfor %}
+            </div>
+         </div>
    </body>
 </html>
