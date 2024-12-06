@@ -1,33 +1,45 @@
 <html>
+   <head>
+      <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
    <body>
-      <h1>Enter Puzzle Data</h1>
-      <p style="color:red;">{{ errorMsg }}<p>
+      <h1>Quartile Puzzle Solver</h1>
+      <p class="center">Enter Data</p>
+      <p class="center" style="color:red;">{{ errorMsg }}<p>
       <form action="http://192.168.1.111:5000/puzzlesubmission" method="post">
-         <table>
+         <table class="center">
             <tbody>
                <tr>
                   {% for value in inputValues[0:4] %}
-                  <td><input type="text" name="val[]" value= "{{value}}" size="4" ></td>
+                  <td><input type="text" autocapitalize="off" name="val[]" value= "{{value}}" size="4" ></td>
                   {% endfor %}
                </tr>
                <tr>
                   {% for value in inputValues[4:8] %}
-                  <td><input type="text" name="val[]" value= "{{value}}" size="4" ></td>
+                  <td><input type="text" autocapitalize="off" name="val[]" value= "{{value}}" size="4" ></td>
                   {% endfor %}
                </tr>
                <tr>
                   {% for value in inputValues[8:12] %}
-                  <td><input type="text" name="val[]" value= "{{value}}" size="4" ></td>
+                  <td><input type="text" autocapitalize="off" name="val[]" value= "{{value}}" size="4" ></td>
                   {% endfor %}
                </tr>
                <tr>
-                  {% for value in inputValues[12:] %}
-                  <td><input type="text" name="val[]" value= "{{value}}" size="4" ></td>
+                  {% for value in inputValues[12:16] %}
+                  <td><input type="text" autocapitalize="off" name="val[]" value= "{{value}}" size="4" ></td>
+                  {% endfor %}
+               </tr>
+               <tr>
+                  {% for value in inputValues[16:] %}
+                  <td><input type="text" autocapitalize="off" name="val[]" value= "{{value}}" size="4" ></td>
                   {% endfor %}
                </tr>
             </tbody>
          </table>
-         <button type="submit">Send</button>
+	 <div class="container">
+            <button type="submit">Submit</button>
+	 </div>
       </form>
    </body>
 </html>

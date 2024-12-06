@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def getInput():
-    inputValues=request.args.get('inputValues',','.join(map(str,["" for _ in range(16)])))
+    inputValues=request.args.get('inputValues',','.join(map(str,["" for _ in range(20)])))
     error=request.args.get('error','')
     inputList=[x for x in inputValues.split(',')]
     return render_template('quartileInput.html', inputValues=inputList,errorMsg=errorString(error))
@@ -16,7 +16,8 @@ def submission():
   if any(item == "" for item in val):
       return redirect(url_for('getInput', inputValues=','.join(map(str,val)), error='emptyFields'))
   else:
-      return render_template('quartileResult.html', result = val)
+      wordList = quartiles.getWords(val)
+      return render_template('quartileResult.html', result = val, wordList = wordList)
 
 def errorString(error):
     if error=='emptyFields':

@@ -59,11 +59,11 @@ def runningDots():
 #t = threading.Thread(target=runningDots)
 #t.start()
 
-def getWords():
+def getWords(gridList):
    count = 0
    wordList = []
    for length in [1,2,3,4]:
-       mylist = list(permutations(stringList,length))
+       mylist = list(permutations(gridList,length))
        for element in mylist:
           potentialWord = concatinateTuple(element)
           if d.check(potentialWord) and containsVowel(potentialWord):
@@ -73,8 +73,11 @@ def getWords():
    #done=True
    #t.join()
 
-   for word in wordList:
-      print(word)
+   return wordList
+
+   #for word in wordList:
+   #   print(word)
 
 if __name__ == "__main__":
-    getWords()
+    words = getWords(["eph","eme","ral","ly","cha","rc","ute","rie","ext","in","gui","sh","bat","tle","fie","ld","co","nspi","ra","cy"])
+    print(words)
