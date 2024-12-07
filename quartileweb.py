@@ -3,12 +3,20 @@ from flask import Flask, redirect, url_for, request, render_template
 from urllib.parse import urlencode
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET','POST'])
 def getInput():
-    inputValues=request.args.get('inputValues',','.join(map(str,["" for _ in range(20)])))
-    error=request.args.get('error','')
-    inputList=[x for x in inputValues.split(',')]
-    return render_template('quartileInput.html', inputValues=inputList,errorMsg=errorString(error))
+    if request.method == 'GET':
+      inputValues=request.args.get('inputValues',','.join(map(str,["" for _ in range(20)])))
+      error=request.args.get('error','')
+      inputList=[x for x in inputValues.split(',')]
+      return render_template('quartileInput.html', inputValues=inputList,errorMsg=errorString(error))
+    else: # POST
+      if request.form.get('Edit') == 'Edit':
+        inputList = request.form.getlist('val[]')
+        return render_template('quartileInput.html', inputValues=inputList)
+      else:
+        inputList = ["" for _ in range(20)]
+        return render_template('quartileInput.html', inputValues=inputList)
 
 @app.route('/puzzlesubmission',methods = ['POST'])
 def submission():

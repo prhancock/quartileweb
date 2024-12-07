@@ -4,6 +4,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
    <body>
+      <form action="http://192.168.1.111:5000" method="post">
 	   <table class="center">
             <tbody>
                <tr>
@@ -33,6 +34,11 @@
 	       </tr> 
             </tbody>
          </table>
+	 <div class="container">
+	    <button type="submit" name="Edit" value="Edit">Edit Tiles</button>
+            <button type="submit" name="Clear" value="Clear">Play Again</button>
+         </div>
+	 </form>
 	 <div class="row">
             <div class="column">
 	       {% for value in wordList[0:(wordList|length+1)//2] %}
