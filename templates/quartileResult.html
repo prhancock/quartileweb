@@ -39,6 +39,7 @@
             <button type="submit" name="Clear" value="Clear">Play Again</button>
          </div>
 	 </form>
+	 <p align="center">Words found: {{wordList|length}}</p>
 	 <div class="row">
             <div class="column">
 	       {% for value in wordList[0:(wordList|length+1)//2] %}
