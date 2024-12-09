@@ -18,7 +18,7 @@ def getInput():
         inputList = ["" for _ in range(20)]
         return render_template('quartileInput.html', inputValues=inputList)
 
-@app.route('/puzzlesubmission',methods = ['POST'])
+@app.route('/solution',methods = ['POST'])
 def submission():
   val = request.form.getlist('val[]')
   if any(item == "" for item in val):
