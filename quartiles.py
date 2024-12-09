@@ -69,10 +69,11 @@ def getWords(gridList):
           if d.check(potentialWord) and containsVowel(potentialWord):
              wordList.append(potentialWord)
 
-   wordList.sort()
+   #wordList.sort()
    #done=True
    #t.join()
-
+   wordList = list(set(wordList))
+   wordList.sort()
    return wordList
 
    #for word in wordList:
